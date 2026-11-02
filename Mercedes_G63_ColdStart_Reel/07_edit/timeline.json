@@ -1,0 +1,64 @@
+{
+  "project": "Mercedes-AMG G 63 · COLD START",
+  "spec": { "width": 1080, "height": 1920, "fps": 30, "duration": 17.2 },
+  "beat": {
+    "note": "Placeholder grid from the reference reel. Run 07_edit/scripts/beatmap.py on the song in 02_music, then use 07_edit/work/timeline_snapped.json. Drop = start of S03 (2.2 s), silence dip just before it, flame echo on the biggest hit (~6.9 s).",
+    "drop": 2.2,
+    "silence": [2.0, 2.2],
+    "flame_hook": 0.2,
+    "flame_echo": 6.9,
+    "hero_hold": [13.4, 15.0]
+  },
+  "shots": [
+    { "id": "S01", "role": "hook", "in": 0.0, "out": 0.6, "folder": "05_flow_generations/S01_flame_pop", "use": "flame burst 0.2-0.8 s of the take", "transition_out": "hard_cut",
+      "text": [{ "t": [0.0, 2.0], "content": "Wait for the pop.", "style": "hook" }] },
+    { "id": "S02", "role": "wide_badge", "in": 0.6, "out": 2.2, "folder": "05_flow_generations/S02_wide_badge", "transition_out": "pass_through",
+      "transition_params": { "frames": 6, "scale_to": 6.0, "target": "grille_slats" },
+      "overlay": [{ "t": [1.0, 1.9], "type": "badge_fly_in", "notes": "Cut the Mercedes star out of S03 (luma/roto), animate it flying from camera onto the grille with blue rim glow (#3FA9FF), 3D-ish perspective, lands at 1.9 s" }] },
+    { "id": "S03", "role": "drop", "in": 2.2, "out": 4.3, "folder": "05_flow_generations/S03_grille_macro", "transition_out": "shape", "transition_params": { "frames": 3, "mask": "circle_on_star" } },
+    { "id": "S04", "role": "wheel_cap", "in": 4.3, "out": 5.4, "folder": "05_flow_generations/S04_wheel_cap", "transition_out": "whip", "transition_params": { "blur_frames": 5, "direction": "right" } },
+    { "id": "S05", "role": "fender_whip", "in": 5.4, "out": 6.8, "folder": "05_flow_generations/S05_fender_whip", "transition_out": "whip", "transition_params": { "blur_frames": 5, "direction": "right" } },
+    { "id": "S06", "role": "rear_roll_flame", "in": 6.8, "out": 7.7, "folder": "05_flow_generations/S06_rear_roll_flame", "transition_out": "roll", "transition_params": { "frames": 6, "degrees": 90, "direction": "clockwise" },
+      "notes": "Hook echo: align the flame burst with the biggest kick (6.9 s)." },
+    { "id": "S07", "role": "headlight_ring", "in": 7.7, "out": 8.9, "folder": "05_flow_generations/S07_headlight_ring", "transition_out": "shape_match" },
+    { "id": "S08", "role": "wheel_spin", "in": 8.9, "out": 9.8, "folder": "05_flow_generations/S08_wheel_spin", "transition_out": "roll", "transition_params": { "frames": 6, "degrees": 90, "direction": "clockwise" } },
+    { "id": "S09", "role": "wheel_interior", "in": 9.8, "out": 11.0, "folder": "05_flow_generations/S09_wheel_interior", "transition_out": "roll", "transition_params": { "frames": 6, "degrees": 90, "direction": "clockwise" } },
+    { "id": "S10", "role": "dash_seat", "in": 11.0, "out": 12.5, "folder": "05_flow_generations/S10_dash_seat", "transition_out": "whip", "transition_params": { "blur_frames": 5, "direction": "right" } },
+    { "id": "S11", "role": "cabin_wide", "in": 12.5, "out": 13.4, "folder": "05_flow_generations/S11_cabin_wide", "transition_out": "hard_cut" },
+    { "id": "S12", "role": "hero_hold", "in": 13.4, "out": 15.0, "folder": "05_flow_generations/S12_hero_hold", "transition_out": "wipe",
+      "transition_params": { "cut_on": "full_cover_frame", "blur_frames": 4, "direction": "right_to_left" }, "notes": "Longest still of the reel." },
+    { "id": "S13", "role": "pass_by_loop", "in": 15.0, "out": 17.2, "folder": "05_flow_generations/S13_pass_by_loop", "transition_out": "loop_whiteout",
+      "transition_params": { "white_frames": 3 } }
+  ],
+  "text_styles": {
+    "hook": { "font": "bold sans (Inter Bold / Helvetica Bold)", "size_px": 84, "color": "#FFFFFF", "position": "centre x, 72% height", "shadow": "soft 40% black" }
+  },
+  "sfx_cues": [
+    { "file": "03_sfx/individual/ambience_bed.wav", "at": 0.0, "gain_db": -10, "len": "full" },
+    { "file": "03_sfx/individual/flame_pop.wav", "at": 0.2, "gain_db": -2 },
+    { "file": "03_sfx/individual/star_shimmer.wav", "at": 1.0, "gain_db": -6 },
+    { "file": "03_sfx/individual/riser_to_drop.wav", "end_at": 2.0, "gain_db": -3 },
+    { "file": "03_sfx/individual/drop_impact.wav", "at": 2.2, "gain_db": 0 },
+    { "file": "03_sfx/individual/grille_pass_ticks.wav", "at": 2.3, "gain_db": -6 },
+    { "file": "03_sfx/individual/hub_hit.wav", "at": 4.3, "gain_db": -3 },
+    { "file": "03_sfx/individual/whoosh_fast.wav", "center_at": 5.4, "gain_db": -5 },
+    { "file": "03_sfx/individual/whoosh_fast.wav", "center_at": 6.8, "gain_db": -5 },
+    { "file": "03_sfx/individual/flame_pop.wav", "at": 6.9, "gain_db": 0 },
+    { "file": "03_sfx/individual/roll_swish.wav", "center_at": 7.7, "gain_db": -5 },
+    { "file": "03_sfx/individual/roll_swish.wav", "center_at": 9.8, "gain_db": -5 },
+    { "file": "03_sfx/individual/roll_swish.wav", "center_at": 11.0, "gain_db": -5 },
+    { "file": "03_sfx/individual/whoosh_fast.wav", "center_at": 12.5, "gain_db": -5 },
+    { "file": "03_sfx/individual/hero_drone.wav", "at": 13.4, "gain_db": -8, "until": 15.0 },
+    { "file": "03_sfx/individual/car_pass_whoosh.wav", "center_at": 15.0, "gain_db": -3 },
+    { "file": "03_sfx/individual/flash_hit.wav", "at": 16.9, "gain_db": -3 }
+  ],
+  "grade": {
+    "order": ["log_to_rec709 (LUT if supplied in 07_edit/luts)", "teal-grey shadows / warm highlights", "blacks crushed slightly", "saturation -10%", "halation on headlight rings + flame", "film grain ~12%", "soft vignette"],
+    "note": "Flow clips differ slightly in colour: match every shot to S12 (hero) before grading."
+  },
+  "exports": [
+    "08_exports/G63_ColdStart_final.mp4  (H.264 high, yuv420p, CRF 16, AAC 320k, +faststart)",
+    "08_exports/G63_ColdStart_clean.mp4  (no text)",
+    "08_exports/G63_ColdStart_cover.jpg  (S12 frame)"
+  ]
+}

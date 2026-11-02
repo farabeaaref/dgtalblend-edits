@@ -1,0 +1,6 @@
+05_flow_generations/**/*.mp4
+05_flow_generations/**/*.mov
+07_edit/work/*
+!07_edit/work/.keep
+08_exports/*
+!08_exports/.keep
