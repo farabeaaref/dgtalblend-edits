@@ -1,0 +1,8 @@
+05_footage/**/*.mp4
+05_footage/**/*.mov
+05_footage/**/*.MP4
+05_footage/**/*.MOV
+06_edit/work/*
+!06_edit/work/.keep
+07_exports/*
+!07_exports/.keep

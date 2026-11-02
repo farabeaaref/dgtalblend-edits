@@ -1,0 +1,69 @@
+{
+  "project": "FRAME · THE GRIND",
+  "spec": { "width": 1080, "height": 1920, "fps": 25, "duration": 30.0 },
+  "beat": {
+    "note": "Placeholder grid: kick every 1.0 s, drop at 5.6 s. Run 06_edit/scripts/beatmap.py on the song in 02_music, then snap every 'in'/'out' below to the nearest kick (drop -> 'drop', last kick before 25.8 s -> 'flash').",
+    "drop": 5.6,
+    "kick_interval": 1.0,
+    "silence": [5.2, 5.6],
+    "clone_echo": 24.8,
+    "flash": 25.6
+  },
+  "shots": [
+    { "id": "S01", "role": "hook", "in": 0.0, "out": 5.6, "folder": "05_footage/S01_hook_clone", "speed": 1.0,
+      "build": "clone_composite", "transition_out": "hard_cut",
+      "text": [{ "t": [0.0, 3.0], "content": "Nobody claps\nfor this part.", "style": "hook" }],
+      "notes": "Source is ONE continuous locked-off take: seated section (take A), pacing section (take B), empty-chair plate (also S13). At ~5.0 s the seated you looks into the lens." },
+    { "id": "S02", "role": "drop", "in": 5.6, "out": 7.6, "folder": "05_footage/S02_drop_finger_frame", "speed": 1.0,
+      "transition_out": "pass_through", "transition_params": { "frames": 6, "scale_to": 8.0, "mask": "finger_rectangle" },
+      "text": [{ "t": [5.6, 13.6], "content": "FRAME · THE GRIND", "style": "title" }] },
+    { "id": "S03", "role": "walk_in", "in": 7.6, "out": 9.6, "folder": "05_footage/S03_walk_in", "speed": 0.5,
+      "ramp_out": { "frames": 6, "to": 3.0 }, "transition_out": "hard_cut" },
+    { "id": "S04", "role": "ridge", "in": 9.6, "out": 10.6, "folder": "05_footage/S04_ridge", "speed": 1.0, "transition_out": "hard_cut" },
+    { "id": "S05", "role": "boots_macro", "in": 10.6, "out": 11.6, "folder": "05_footage/S05_boots", "speed": 0.6, "transition_out": "hard_cut",
+      "sfx": [{ "name": "gravel (location audio)", "sync": "heel_strike" }] },
+    { "id": "S06", "role": "low_walk", "in": 11.6, "out": 13.6, "folder": "05_footage/S06_low_walk", "speed": 0.6,
+      "ramp_out": { "frames": 6, "to": 3.0 }, "transition_out": "hard_cut" },
+    { "id": "S07", "role": "rack_focus", "in": 13.6, "out": 15.6, "folder": "05_footage/S07_rack_focus", "speed": 1.0,
+      "notes": "Trim so focus lands on the city exactly on the 14.6 s kick.", "transition_out": "hard_cut" },
+    { "id": "S08", "role": "notebook_macro", "in": 15.6, "out": 16.6, "folder": "05_footage/S08_notebook", "speed": 1.0, "transition_out": "hard_cut",
+      "sfx": [{ "name": "paper flutter (location audio)", "sync": "page_flip" }] },
+    { "id": "S09", "role": "breather", "in": 16.6, "out": 19.6, "folder": "05_footage/S09_breather", "speed": 1.0, "transition_out": "hard_cut",
+      "notes": "Also export a still of this frame + title as the Reel cover." },
+    { "id": "S10", "role": "pole_wipe", "in": 19.6, "out": 21.6, "folder": "05_footage/S10_pole_wipe", "speed": 1.0,
+      "transition_out": "wipe", "transition_params": { "cut_on": "full_cover_frame", "blur_frames": 4, "direction": "left_to_right" } },
+    { "id": "S11", "role": "city_roll", "in": 21.6, "out": 23.6, "folder": "05_footage/S11_city_roll", "speed": 1.0,
+      "transition_out": "roll", "transition_params": { "frames": 6, "degrees": 25, "direction": "clockwise" } },
+    { "id": "S12", "role": "laptop_glow", "in": 23.6, "out": 25.6, "folder": "05_footage/S12_laptop_glow", "speed": 1.0,
+      "overlay": [{ "t": [24.8, 24.92], "source": "S01 take B (restless you)", "frames": 3 }],
+      "transition_out": "whiteout", "transition_params": { "white_frames": 1, "glow_frames": 3 } },
+    { "id": "S13", "role": "loop_plate", "in": 25.6, "out": 30.0, "folder": "05_footage/S13_loop_plate", "speed": 1.0,
+      "push_in": { "from": 1.0, "to": 1.12 },
+      "text": [{ "t": [27.0, 30.0], "content": "Back tomorrow.", "style": "title" }],
+      "transition_out": "loop_to_S01", "notes": "Source = empty-chair section of the S01 take. Last frame must match S01 frame 1 framing + scale." }
+  ],
+  "text_styles": {
+    "hook": { "font": "bold sans (Inter Bold / Helvetica Bold)", "size_px": 78, "color": "#FFFFFF", "position": "centre x, 72% height", "shadow": "soft 40% black" },
+    "title": { "font": "serif (Cormorant Garamond / Playfair)", "size_px": 46, "color": "#D9A55B", "position": "centre", "tracking": "+4%" }
+  },
+  "sfx_cues": [
+    { "file": "03_sfx/individual/wind_bed.wav", "at": 0.0, "gain_db": -8, "len": "full" },
+    { "file": "03_sfx/individual/drone_bed.wav", "at": 0.0, "gain_db": -6, "until": 5.2 },
+    { "file": "03_sfx/individual/riser_to_drop.wav", "end_at": 5.2, "gain_db": -3 },
+    { "file": "03_sfx/individual/drop_impact.wav", "at": 5.6, "gain_db": 0 },
+    { "file": "03_sfx/individual/whoosh_wipe.wav", "center_at": 21.6, "gain_db": -4 },
+    { "file": "03_sfx/individual/roll_swish.wav", "center_at": 23.6, "gain_db": -4 },
+    { "file": "03_sfx/individual/clone_glitch.wav", "at": 24.8, "gain_db": -6 },
+    { "file": "03_sfx/individual/flash_hit.wav", "at": 25.6, "gain_db": -2 },
+    { "file": "03_sfx/individual/drone_bed.wav", "at": 25.6, "gain_db": -6, "until": 30.0 }
+  ],
+  "grade": {
+    "order": ["log_to_rec709 (LUT if supplied in 06_edit/luts)", "teal shadows / amber highlights", "blacks crushed slightly", "saturation -15%", "halation on city lights + laptop", "35mm grain ~15%", "soft vignette"],
+    "arc": "S03-S08 warm golden -> S01/S02/S09/S10 cold blue hour -> S11/S12 night with amber city lights -> S13 cool dawn"
+  },
+  "exports": [
+    "07_exports/FRAME_TheGrind_final.mp4  (H.264 high, yuv420p, CRF 16, AAC 320k, +faststart)",
+    "07_exports/FRAME_TheGrind_clean.mp4  (no text)",
+    "07_exports/FRAME_TheGrind_cover.jpg  (S09 frame + title)"
+  ]
+}
